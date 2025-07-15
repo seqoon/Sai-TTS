@@ -1,0 +1,5 @@
+Data/
+*.zip
+coqui-ai-TTS/
+models/
+wavs/
