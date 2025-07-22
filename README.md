@@ -65,7 +65,7 @@
 - Ubuntu 24.04 **OR** Ubuntu 22.04
 - [miniconda3](https://docs.anaconda.com/miniconda/install/)
 - A CUDA-Enabled NVIDIA GPU
-- CUDA 12.4
+- CUDA 11.8
 
 ```bash
 # Quick miniconda3 command line install [OPTIONAL]
@@ -87,7 +87,7 @@ sudo apt install ffmpeg sox libsox-fmt-mp3 libsox-dev libavcodec-dev libsndfile1
 
 sudo apt clean && sudo apt autoremove
 
-conda create -n tts python=3.12 -y
+conda create -n tts python=3.10 -y
 conda activate tts
 
 python -m pip install --upgrade pip

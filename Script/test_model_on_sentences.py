@@ -14,18 +14,19 @@ edit the following variables as preferences:
    7. `SPEAKER_REFERENCE` : sample wav of the speaker we want to clone in inference.
 
 """
+
 # Define base directories
-BASE_DIR = "/home/abdelrahman-khaled/Projects/SpeechProjects/SeqoonTTS"
-TRAINING_DIR = os.path.join(BASE_DIR, "models/ckpt2")
+BASE_DIR = "/home/abdelrahman-khaled/Projects/SpeechProjects/Sai-TTS"
+TRAINING_DIR = os.path.join(BASE_DIR, "models/seqoon_ckpt")
 
 # Define paths
 CONFIG_PATH = os.path.join(TRAINING_DIR, "config.json")
 TOKENIZER_PATH = os.path.join(TRAINING_DIR, "vocab.json")
-XTTS_CHECKPOINT = os.path.join(TRAINING_DIR, "checkpoint_326000.pth")
-SPEAKER_REFERENCE = "/home/abdelrahman-khaled/Projects/SpeechProjects/SeqoonTTS/coqui-ai-TTS/tests/data/ljspeech/wavs/LJ001-0002.wav"
+XTTS_CHECKPOINT = os.path.join(TRAINING_DIR, "best_model_31977.pth")
+SPEAKER_REFERENCE = "/home/abdelrahman-khaled/Projects/SpeechProjects/Sai-TTS/Data/SeqoonData/wavs/H1-00001.wav"
 
 # Output directory
-OUTPUT_WAV_PATH = os.path.join(TRAINING_DIR, "output", "test_sentences_best_model")
+OUTPUT_WAV_PATH = os.path.join(TRAINING_DIR, "output", "test_sentences_best_model_CS")
 os.makedirs(OUTPUT_WAV_PATH, exist_ok=True)  # Ensure output directory exists
 
 # Arabic texts for inference
@@ -35,9 +36,10 @@ texts = [
     "عندنا وحدات جاهزة للتسليم الفوري وأقساط تبدأ من 7000 جنيه في الشهر من غير فوائد.",
     "فريق المبيعات بتاعنا هيشرحلك كل التفاصيل خطوة بخطوة وهيكون معاك لحد استلام وحدتك.",
     "إنت وصلت ولا لسه في الطريق؟",
-    "عايز تشرب حاجة؟",
-    "أنا هنزل أتمشى شوية.",
-    "الجو النهارده حلو قوي."
+    "أهلا أنا صاي مساعدك الرقمي",
+    "مساء الفُل، أنا صاي، مساعدك الصوتي.",
+    "على فكرة، عندنا عروض جديدة ممكن تفيدك، تحب أقولك عليها؟",
+    "لو عندك أي مشكلة أو استفسار، أنا هنا عشان أساعدك"
 ]
 
 
@@ -70,12 +72,12 @@ for idx, text in enumerate(texts):
         language="ar",  # Arabic
         gpt_cond_latent=gpt_cond_latent,
         speaker_embedding=speaker_embedding,
-        temperature=0.75,                     #range-> 0.55:0.75
+        temperature=0.65,                     #range-> 0.55:0.75
         length_penalty=1.0,
         repetition_penalty=2.0,
         top_k=50,
         top_p=0.8,
-        speed=1.2,
+        speed=1.0,
         enable_text_splitting=False,
     )
 
