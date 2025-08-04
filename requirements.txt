@@ -1,6 +1,6 @@
 soundfile
 librosa
-coqui-tts==0.25.1
+coqui-tts==0.25.2
 tensorboard
 sox
 uvicorn

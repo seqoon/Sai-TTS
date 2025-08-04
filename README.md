@@ -104,6 +104,7 @@ pip install --no-deps -r requirements.txt
 - [Egyptian Speech Dataset](https://www.kaggle.com/datasets/iraqyomar/egyspeech/data)
 - [400K Egyptian Arabic Lines](https://www.kaggle.com/datasets/fadisarwat/egyptian-arabic-lines)
 - [Project's Github repository](https://github.com/AbdoKhaled-2021/SeqoonTTS)
+- [Seqoon Dataset](https://drive.google.com/file/d/1OEGEIuklWz_HWSLb9mYgWPvs72IfvwXN/view?usp=sharing)
 
 ### XTTSv2
 

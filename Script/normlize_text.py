@@ -1,28 +1,28 @@
-import pandas as pd
-import re
+import csv
 
-# Arabic text normalization function
-def normalize_arabic(text):
-    arabic_numbers = {'٠':'0','١':'1','٢':'2','٣':'3','٤':'4',
-                      '٥':'5','٦':'6','٧':'7','٨':'8','٩':'9'}
-    for ar_num, en_num in arabic_numbers.items():
-        text = text.replace(ar_num, en_num)
-    text = re.sub(r'[^\w\s]', ' ', text)  # remove special characters
-    text = re.sub(r'\s+', ' ', text).strip()  # clean up extra spaces
+# تحويل الأرقام العربية إلى إنجليزية
+def convert_arabic_digits_to_english(text):
+    arabic_to_english_digits = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
+    return text.translate(arabic_to_english_digits)
+
+# استبدال "ڤ" بـ "ف" وتطبيق تحويل الأرقام
+def clean_text(text):
+    if not text:
+        return text
+    text = text.replace("ڤ", "ف")
+    text = convert_arabic_digits_to_english(text)
     return text
 
-# Load CSV file (pipe-separated, no headers)
-input_csv = "/home/abdelrahman-khaled/Projects/SpeechProjects/Sai-TTS/Data/SeqoonData/Seqoon_DS/metadata.csv"
-output_csv = "/home/abdelrahman-khaled/Projects/SpeechProjects/Sai-TTS/Data/SeqoonData/Seqoon_DS/normalized_dataset.csv"
+# مسار الملف الأصلي والملف الناتج
+input_file = "/home/abdelrahman-khaled/Projects/SpeechProjects/Sai-TTS/Data/Nour_Data/metadata_sep.csv"
+output_file = "/home/abdelrahman-khaled/Projects/SpeechProjects/Sai-TTS/Data/Nour_Data//output.csv"
 
-# Columns: 0 = file_name, 1 = text, 2 = normlized
-df = pd.read_csv(input_csv, sep='|', header=None, names=['file_name', 'text', 'normlized'])
+with open(input_file, "r", encoding="utf-8") as infile, open(output_file, "w", encoding="utf-8", newline='') as outfile:
+    reader = csv.reader(infile, delimiter="|")
+    writer = csv.writer(outfile, delimiter="|")
 
-# Apply normalization on 'text' and save result into both 'text' and 'normlized'
-df['text'] = df['text'].astype(str).apply(normalize_arabic)
-df['normlized'] = df['text']
+    for row in reader:
+        cleaned_row = [clean_text(cell) for cell in row]
+        writer.writerow(cleaned_row)
 
-# Save normalized dataset
-df.to_csv(output_csv, sep='|', header=False, index=False, encoding='utf-8')
-
-print(f"Normalization completed. Saved to '{output_csv}'.")
+print("تم تحويل الملف بنجاح إلى:", output_file)
