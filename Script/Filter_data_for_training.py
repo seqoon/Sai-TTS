@@ -117,9 +117,9 @@ def process_csv(input_file, output_file, long_text_file, filtered_file):
 
 
 if __name__ == "__main__":
-    input_csv = "/home/abdelrahman-khaled/Projects/SpeechProjects/SeqoonTTS/Data/SeqoonData/metadata_test.csv"          # Input metadata file (audio_filename, text)
-    output_csv = "/home/abdelrahman-khaled/Projects/SpeechProjects/SeqoonTTS/Data/SeqoonData/metadata_clean.csv" # Cleaned metadata file  (used in the training)
-    long_text_csv = "/home/abdelrahman-khaled/Projects/SpeechProjects/SeqoonTTS/Data/SeqoonData/metadata_long.csv"     # Records with text > 160 characters  (filenames,transcriptions) where transcription text is more than 160 characters (model limitation)
-    filtered_csv = "/home/abdelrahman-khaled/Projects/SpeechProjects/SeqoonTTS/Data/SeqoonData/filtered_output_csv" # 
+    input_csv = "/home/abdelrahman-khaled/Projects/SpeechProjects/Sai-TTS/Data/SeqoonData/Seqoon_DS/metadata.csv"          # Input metadata file (audio_filename, text)
+    output_csv = "./metadata_clean.csv" # Cleaned metadata file  (used in the training)
+    long_text_csv = "./metadata_long.csv"     # Records with text > 160 characters  (filenames,transcriptions) where transcription text is more than 160 characters (model limitation)
+    filtered_csv = "./filtered_output_csv" # 
     
     process_csv(input_csv, output_csv, long_text_csv, filtered_csv)

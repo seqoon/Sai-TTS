@@ -2,8 +2,8 @@ import os
 import csv
 
 # Edit these paths
-wav_dir = "/home/abdelrahman-khaled/Projects/SpeechProjects/SeqoonTTS/Data/SeqoonData/wav_dir"
-csv_file = "/home/abdelrahman-khaled/Projects/SpeechProjects/SeqoonTTS/Data/SeqoonData/metadata_clean.csv"
+wav_dir = "/home/abdelrahman-khaled/Projects/Data/All/Seqoon_DS/wav"
+csv_file = "/home/abdelrahman-khaled/Projects/Data/All/Seqoon_DS/valid.csv"
 
 # Read all rows from CSV
 with open(csv_file, newline='', encoding='utf-8') as f:

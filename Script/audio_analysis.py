@@ -3,7 +3,7 @@ import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Directory containing audio files
-DIR = "/home/abdelrahman-khaled/Projects/Data/Nour/After editing-20250803T161818Z-1-001/After editing/Nour_Data/wavs"  # Change this to your directory
+DIR = "/home/abdelrahman-khaled/Projects/Data/All/Seqoon_DS/wav"  # Change this to your directory
 
 # Check if directory is provided
 if not DIR:
