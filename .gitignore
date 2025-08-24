@@ -4,3 +4,4 @@ coqui-ai-TTS/
 models/
 wavs/
 xtts_gradio_app/
+*.csv
